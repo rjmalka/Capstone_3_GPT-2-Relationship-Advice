@@ -35,8 +35,9 @@ if prompt:
 
     st.session_state.messages.append({"role": "user", "content": prompt})
     st.session_state.messages.append({"role": "assistant", "content": response})
-    st.chat_message("assistant").write(response)
-	
+    
+    # Display the assistant's response
+    st.markdown(f"**Assistant:** {response}")	
 	
 def get_new_prompt(messages):
 	prompt = ""
