@@ -17,9 +17,11 @@ if "messages" not in st.session_state:
     st.session_state["messages"] = [{"role": "assistant", "content": "How can I help you?"}]
 
 for msg in st.session_state.messages:
-    st.chat_message(msg["role"]).write(msg["content"])
+    role = msg["role"]
+    content = msg["content"]
+    st.write(f"{role}: {content}")
 
-prompt = st.chat_input()
+prompt = st.text_input("Type your message here:")
 if prompt:
 
 
