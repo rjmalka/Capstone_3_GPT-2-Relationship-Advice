@@ -11,7 +11,7 @@ def get_new_prompt(messages):
     for message in messages:
         prompt += f"{message['role']}: {message['content']}\n"
     return prompt
-  
+
 st.title("💬 Chatbot")
 if "messages" not in st.session_state:
     st.session_state["messages"] = [{"role": "assistant", "content": "How can I help you?"}]
@@ -23,10 +23,8 @@ for msg in st.session_state.messages:
 
 prompt = st.text_input("Type your message here:")
 if prompt:
-
-
     # Tokenize the input
-    new_prompt = get_new_prompt(st.session_state.messages)
+    new_prompt = get_new_prompt(st.session_state.messages) + f"user: {prompt}\n"
     input_ids = tokenizer.encode(new_prompt, return_tensors="pt")
     
     # Generate a response
@@ -37,9 +35,4 @@ if prompt:
     st.session_state.messages.append({"role": "assistant", "content": response})
     
     # Display the assistant's response
-    st.markdown(f"**Assistant:** {response}")	
-	
-def get_new_prompt(messages):
-	prompt = ""
-	for message in messages:
-		prompt += ""
+    st.markdown(f"**Assistant:** {response}")
