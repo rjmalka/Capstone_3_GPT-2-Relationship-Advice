@@ -25,6 +25,8 @@ Finally, this version of GPT-2 will be put on a website for others to test (alon
 
 My data was scraped from Reddit’s r/relationship_advice, where I used PSAW (Python Pushshift API Wrapper) to collect data. I managed to collect a million posts, and three million comments (many of which were multiple, sometimes hundreds, of comments for a single thread). I simply joined all comments with the same ID into a single cell, and then linked that ID to the post it was connected to. Doing so reduced the overall size of the dataset to ~184,000 rows. This meant deleting approximately 800k rows of threads, for which I could not pull the comments. GPT-2 was trained ~8,000 steps over a total of ~75MM tokens.
 
+While the chatbot itself is dormant (at some point I'll host it outside of GitLFS), the link to the Streamlit application, whenever it runs, is https://capstone3gpt-2-relationship-advice.streamlit.app/
+
 Objectives:
 
     Scrape Reddit's r/relationship_advice
